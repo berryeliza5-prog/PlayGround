@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07141a">
+  <title>THE LAST TIDE — A Survival Log</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="game-shell">
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark">◈</div><div><div class="brand-title">THE LAST TIDE</div><div class="brand-sub">A SURVIVAL LOG · NORTH ATLANTIC</div></div></div>
+      <div class="top-status"><span class="live-dot"></span><span id="statusText">UNDERWAY</span><span class="top-divider"></span><span class="day-label">DAY <b id="dayNum">01</b></span></div>
+      <button class="icon-btn" id="soundBtn" aria-label="Toggle sound" title="Toggle sound">♫</button>
+    </header>
+    <main class="layout">
+      <section class="main-column">
+        <section class="scene-card">
+          <div class="scene-topline"><div class="coord" id="coordinates">47° 31′ N &nbsp; 08° 24′ W</div><div class="weather"><span id="weatherIcon">☁</span> <span id="weatherText">LOW CLOUD · CALM SEA</span></div></div>
+          <canvas id="world" aria-label="Illustrated island expedition scene"></canvas>
+          <div class="scene-caption"><span class="caption-kicker" id="sceneKicker">OPEN WATER</span><h1 id="sceneTitle">The drowned coast</h1><p id="sceneDesc">The old world is quiet beneath the waves. Somewhere ahead, a radio still answers.</p></div>
+          <div class="scene-progress"><span id="progressText">ROUTE TO SHELTER COVE</span><div class="progress-track"><i id="progressBar"></i></div></div>
+        </section>
+        <section class="action-panel">
+          <div class="panel-heading"><div><span class="eyebrow">YOUR NEXT MOVE</span><h2 id="actionHeading">Keep the boat moving.</h2></div><div class="turn-count"><span id="turnNum">00</span><small>DECISIONS MADE</small></div></div>
+          <div class="action-grid" id="actionGrid"></div>
+          <div class="keys-hint">TIP: Supplies run out at sea. Every decision advances the day. <span>1 — 4</span> to choose</div>
+        </section>
+      </section>
+      <aside class="sidebar">
+        <section class="crew-card">
+          <div class="section-title"><div><span class="eyebrow">ABOARD THE SEAWRAITH</span><h2>Your crew <span class="crew-count" id="crewCount">4</span></h2></div><span class="deck-tag">DECK 02</span></div>
+          <div class="crew-list" id="crewList"></div>
+          <div class="crew-footnote"><span class="tiny-pulse"></span><span id="crewNote">Everyone is holding on.</span></div>
+        </section>
+        <section class="supplies-card">
+          <div class="section-title"><div><span class="eyebrow">SUBMARINE STORES</span><h2>Supplies</h2></div><span class="stores-icon">▤</span></div>
+          <div class="resource" data-resource="food"><div class="resource-top"><span><i class="resource-icon food-icon">◆</i> PROVISIONS</span><b id="foodVal">12</b></div><div class="meter"><i id="foodMeter" class="meter-fill"></i></div><small id="foodHint">Rations for the crew</small></div>
+          <div class="resource" data-resource="water"><div class="resource-top"><span><i class="resource-icon water-icon">◆</i> FRESH WATER</span><b id="waterVal">16</b></div><div class="meter"><i id="waterMeter" class="meter-fill"></i></div><small id="waterHint">Essential · cannot be skipped</small></div>
+          <div class="resource" data-resource="fuel"><div class="resource-top"><span><i class="resource-icon fuel-icon">◆</i> DIESEL</span><b id="fuelVal">8</b></div><div class="meter"><i id="fuelMeter" class="meter-fill"></i></div><small id="fuelHint">Enough for a few crossings</small></div>
+        </section>
+        <section class="radio-card"><div class="radio-top"><span class="eyebrow">SHORTWAVE · 2182 kHz</span><span class="signal-icon">◉</span></div><div class="radio-wave"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><p id="radioText">— static —</p><div class="radio-foot">SIGNAL STRENGTH <b id="signalStrength">12%</b></div></section>
+        <section class="log-card"><div class="section-title log-heading"><div><span class="eyebrow">CAPTAIN’S JOURNAL</span><h2>Field notes</h2></div><span class="log-count" id="logCount">01</span></div><div id="journal" class="journal"></div></section>
+        <div class="sidebar-bottom"><span>U.S.S. SEAWRAITH <b>·</b> NUCLEAR ATTACK SUBMARINE</span><span>NO SAFE HARBOR</span></div>
+      </aside>
+    </main>
+    <div class="toast" id="toast" role="status"></div>
+    <div class="modal-backdrop" id="modal" aria-hidden="true"><div class="ending-card"><div class="ending-mark" id="endingMark">◈</div><span class="eyebrow" id="endingEyebrow">LAST ENTRY</span><h2 id="endingTitle">The sea keeps its secrets.</h2><p id="endingText"></p><div id="endingStats" class="ending-stats"></div><button id="restartBtn" class="primary-btn">BEGIN AGAIN <span>↗</span></button></div></div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
